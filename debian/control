@@ -11,7 +11,7 @@ Homepage: http://xivo.io/
 Package: xivo-dxtorc
 Architecture: all
 Depends: ${python:Depends}, ${misc:Depends}
-Conflicts: pf-xivo-dxtora (<< 15.05), xivo-dxtora (<< 15.05)
+Conflicts: pf-xivo-dxtora (<= 15.04), xivo-dxtora (<= 15.04)
 Description: XIVO dhcp extractor client 
  XIVO is a system based on a powerful IPBX, to bring an easy to
  install solution for telephony and related services.
