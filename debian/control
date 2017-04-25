@@ -9,7 +9,7 @@ X-Python-Version: >= 2.7
 Package: xivo-dxtorc
 Architecture: all
 Depends: ${python:Depends}, ${misc:Depends}
-Conflicts: pf-xivo-dxtora (<= 15.04), xivo-dxtora (<= 15.04)
+Conflicts: xivo-dxtora (<= 15.04)
 Description: Wazo dhcp extractor client
  Wazo is a system based on a powerful IPBX, to bring an easy to
  install solution for telephony and related services.
