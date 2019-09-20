@@ -4,7 +4,7 @@
 from setuptools import setup
 
 setup(
-    name='xivo-dxtorc',
+    name='wazo-dxtorc',
     version='0.2',
     description='Wazo dxtora client',
     author='Wazo Authors',
