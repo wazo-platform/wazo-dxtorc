@@ -4,9 +4,9 @@
 from setuptools import setup
 
 setup(
-    name='xivo-dxtorc',
+    name='wazo-dxtorc',
     version='0.2',
-    description='XIVO dxtora client',
+    description='Wazo dxtora client',
     author='Wazo Authors',
     author_email='dev@wazo.community',
     url='http://wazo.community',
