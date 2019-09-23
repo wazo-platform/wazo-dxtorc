@@ -1,3 +1,9 @@
+wazo-dxtorc (19.14~20190920) wazo-dev-buster; urgency=medium
+
+  * Rename to wazo-dxtorc
+
+ -- Wazo Maintainers <dev+pkg@wazo.community>  Fri, 20 Sep 2019 15:29:27 -0400
+
 xivo-dxtorc (15.05~1-1) stable; urgency=medium
 
   * Initial release.
