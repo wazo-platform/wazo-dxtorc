@@ -50,7 +50,7 @@ import socket
 import sys
 import StringIO
 
-UNIX_SERVER_ADDR = '/var/run/wazo-dxtora/wazo-dxtora.ctl'
+UNIX_SERVER_ADDR = '/run/wazo-dxtora/wazo-dxtora.ctl'
 
 
 def msg_exit(err_msg):
