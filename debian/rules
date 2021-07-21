@@ -1,5 +1,7 @@
 #!/usr/bin/make -f
 # -*- makefile -*-
 
+export PYBUILD_NAME=wazo-dxtorc
+
 %:
-	dh $@ --with python2
+	dh $@ --with python3 --buildsystem=pybuild
