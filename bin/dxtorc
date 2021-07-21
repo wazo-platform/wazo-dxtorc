@@ -1,20 +1,8 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Copyright 2010-2019 The Wazo Authors  (see the AUTHORS file)
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>
+# Copyright 2010-2021 The Wazo Authors  (see the AUTHORS file)
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 
 """Small client program that send DHCP information to a transfer agent via
@@ -46,15 +34,15 @@ only the IP address needs to be passed to the client:
 
 """
 
+import io
 import socket
 import sys
-import StringIO
 
 UNIX_SERVER_ADDR = '/run/wazo-dxtora/wazo-dxtora.ctl'
 
 
 def msg_exit(err_msg):
-    print >>sys.stderr, err_msg
+    print(err_msg, file=sys.stderr)
     sys.exit(1)
 
 
@@ -79,7 +67,7 @@ def parse_args(args):
 
 def build_dgram(dhcp_info):
     """Return a datagram from an dhcp_info object..."""
-    s = StringIO.StringIO()
+    s = io.StringIO()
 
     def append(v):
         s.write(v + '\n')
@@ -90,7 +78,7 @@ def build_dgram(dhcp_info):
         append(dhcp_info['mac'])
         for option in dhcp_info['options']:
             append(option)
-    return s.getvalue()
+    return s.getvalue().encode('utf-8')
 
 
 def send_dgram(dgram):
