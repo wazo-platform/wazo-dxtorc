@@ -1,6 +1,4 @@
-#!/usr/bin/python3
-# -*- coding: utf-8 -*-
-
+#!/usr/bin/env python3
 # Copyright 2010-2021 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -94,5 +92,5 @@ def send_dgram(dgram):
         s.close()
 
 
-if __name__ == '__main__':
+def main():
     send_dgram(build_dgram(parse_args(sys.argv[1:])))
