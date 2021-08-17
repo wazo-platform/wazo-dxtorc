@@ -3,5 +3,5 @@ Upstream-Name: wazo-dxtorc
 Source: https://github.com/wazo-platform/wazo-dxtorc.git
 
 Files: *
-Copyright: 2015-2019 The Wazo Authors
-License: GPL-3.0+
+Copyright: 2015-2021 The Wazo Authors
+License: GPL-3.0-or-later

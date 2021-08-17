@@ -1,3 +1,9 @@
+wazo-dxtorc (21.11~20210817) wazo-dev-buster; urgency=medium
+
+  * Convert to Python 3
+
+ -- Wazo Maintainers <dev+pkg@wazo.community>  Tue, 17 Aug 2021 15:22:17 -0400
+
 wazo-dxtorc (19.14~20190920) wazo-dev-buster; urgency=medium
 
   * Rename to wazo-dxtorc
