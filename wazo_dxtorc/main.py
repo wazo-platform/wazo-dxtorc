@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright 2010-2021 The Wazo Authors  (see the AUTHORS file)
+# Copyright 2010-2023 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 
@@ -86,7 +86,7 @@ def send_dgram(dgram):
     s.setblocking(0)
     try:
         s.sendto(dgram, UNIX_SERVER_ADDR)
-    except socket.error:
+    except OSError:
         msg_exit('error: could not send data to remote socket')
     finally:
         s.close()
