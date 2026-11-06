@@ -1,3 +1,9 @@
+wazo-dxtorc (26.11) wazo-dev-bookworm; urgency=medium
+
+  * Allow dhcpd to run dxtorc under its AppArmor profile
+
+ -- Wazo Maintainers <dev+pkg@wazo.community>  Fri, 06 Nov 2026 11:35:21 -0500
+
 wazo-dxtorc (21.11~20210817) wazo-dev-buster; urgency=medium
 
   * Convert to Python 3

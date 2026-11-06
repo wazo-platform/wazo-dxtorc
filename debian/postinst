@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = "configure" ]; then
+    # Reload the dhcpd profile so it picks up /etc/apparmor.d/dhcpd.d/wazo-dxtorc
+    if [ -f /etc/apparmor.d/usr.sbin.dhcpd ] && command -v apparmor_parser >/dev/null 2>&1 \
+        && [ "$(cat /sys/module/apparmor/parameters/enabled 2>/dev/null)" = "Y" ]; then
+        apparmor_parser -r -T -W /etc/apparmor.d/usr.sbin.dhcpd \
+            || echo "wazo-dxtorc: could not reload the dhcpd AppArmor profile, run: apparmor_parser -r /etc/apparmor.d/usr.sbin.dhcpd" >&2
+    fi
+fi
+
+#DEBHELPER#
+
+exit 0

@@ -1,0 +1,25 @@
+# Included by the isc-dhcp-server AppArmor profile (/usr/sbin/dhcpd), whose
+# "on commit" hook runs dxtorc to forward leases to wazo-dxtora.
+
+/usr/bin/dxtorc Cx -> dxtorc,
+
+profile dxtorc {
+  #include <abstractions/base>
+  #include <abstractions/python>
+
+  /usr/bin/ r,
+  /usr/bin/dxtorc r,
+  /usr/bin/python3* rix,
+
+  # Without HOME, Python looks up the home directory for its user site
+  deny /etc/nsswitch.conf r,
+  deny /etc/passwd r,
+
+  # dhcpd leaks its lease file descriptor; revoke it without logging
+  deny /var/lib/dhcp/dhcpd{,6}.leases* w,
+
+  # The socket is owned by the wazo-dxtora user and not writable by others
+  capability dac_override,
+  unix (create, send) type=dgram,
+  /run/wazo-dxtora/wazo-dxtora.ctl w,
+}
