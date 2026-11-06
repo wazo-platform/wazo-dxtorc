@@ -1,0 +1,15 @@
+# Included by the isc-dhcp-server AppArmor profile (/usr/sbin/dhcpd), whose
+# "on commit" hook runs dxtorc to forward leases to wazo-dxtora.
+
+/usr/bin/dxtorc Cx -> dxtorc,
+
+profile dxtorc {
+  #include <abstractions/base>
+  #include <abstractions/python>
+
+  /usr/bin/dxtorc r,
+  /usr/bin/python3* ix,
+
+  unix (create, send) type=dgram,
+  /run/wazo-dxtora/wazo-dxtora.ctl w,
+}
