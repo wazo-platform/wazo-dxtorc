@@ -8,7 +8,10 @@ profile dxtorc {
   #include <abstractions/python>
 
   /usr/bin/dxtorc r,
-  /usr/bin/python3* ix,
+  /usr/bin/python3* rix,
+
+  # dhcpd leaks its lease file descriptor; revoke it without logging
+  deny /var/lib/dhcp/dhcpd{,6}.leases* w,
 
   unix (create, send) type=dgram,
   /run/wazo-dxtora/wazo-dxtora.ctl w,
