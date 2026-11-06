@@ -18,6 +18,8 @@ profile dxtorc {
   # dhcpd leaks its lease file descriptor; revoke it without logging
   deny /var/lib/dhcp/dhcpd{,6}.leases* w,
 
+  # The socket is owned by the wazo-dxtora user and not writable by others
+  capability dac_override,
   unix (create, send) type=dgram,
   /run/wazo-dxtora/wazo-dxtora.ctl w,
 }
